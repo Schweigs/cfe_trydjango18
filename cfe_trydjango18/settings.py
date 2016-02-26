@@ -127,3 +127,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# this is where my files are during development. they will be copied to
+# STATIC_ROOT with collectstatic
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static", "our_static"),
+    #'/var/www/static/',
+]
+
+# this is the production server for static files
+# move static files into this foflder with 'manage.py collectstatic'
+STATIC_ROOT = os.path.join(BASE_DIR, "static_server", "static_root")
+
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "static_server", "media_root")
