@@ -3,15 +3,35 @@
 
 {% block head_title %}Welcome | {{ block.super }}{% endblock %}
 
-{%  block jumbotron %}
-    {{ block.super }}
+{%  block jumbotron_content %}
+<div class="row">
+    <div class="col-sm-6">
+        <h1>Try Django 1.8</h1>
+        <p>The MVP landing project is designed to get your project started. The goal is to help you launch as soon as
+        possible with the least amount of investment using time or money. Join Us today.</p>
+        <p><a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Join Us &raquo;</a></p>
+    </div>
+    <div class="col-sm-6" style="background-color: black;height:300px;">
+
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
-    <h1>{{ title }}</h1>
+
     <div class="row">
-        <div class="col-sm-6 col-md-3">
+    <div class="col-xs-3">
+        <p class="lead">Build with Django & Bootstrap</p>
+    </div>
+    <div class="col-xs-3">
+        <p class="lead">Created for Starters of all kinds.</p>
+    </div>
+    <div class="col-xs-3">
+        <p class="lead">Always Open Source</p>
+    </div>
+        <div class="col-xs-3 pull-right">
+            <p class="lead">{{ title }}</p>
             <form method="POST" action="">{% csrf_token %}
                 {{ form|crispy }}
                 <input class="'btn btn-sm btn-primary" type="submit" value="Sign up">
