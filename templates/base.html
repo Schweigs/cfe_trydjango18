@@ -24,11 +24,11 @@
 
     {% include 'head_css.html' %}
 
-  <style>
-      {% block style %}
-          
-      {% endblock %}
-  </style>
+      <style>
+          {% block style %}
+
+          {% endblock %}
+      </style>
 
   </head>
 
@@ -41,17 +41,12 @@
     <div class="container">
 
         {%  block jumbotron %}
-            <div class="jumbotron">
-                {% block jumbotron_content %}
-                {% endblock %}
-            </div>
         {% endblock %}
 
         {% block content %}
         {% endblock %}
 
-    </div> <!-- /container -->
-
+    </div>
 
   {% include 'javascript.html' %}
 
