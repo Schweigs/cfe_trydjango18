@@ -23,6 +23,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
     url(r'^contact/', 'newsletter.views.contact', name='contact'),
+    url(r'^about/', 'cfe_trydjango18.views.about', name='about'),
     url(r'^admin/', admin.site.urls),
 ]
 
