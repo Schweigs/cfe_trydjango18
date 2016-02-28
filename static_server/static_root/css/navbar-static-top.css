@@ -5,3 +5,7 @@ body {
 .navbar-static-top {
   margin-bottom: 19px;
 }
+
+ .text-align-center{
+  text-align: center;
+}
