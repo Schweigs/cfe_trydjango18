@@ -8,7 +8,7 @@ from .forms import SignUpForm, ContactForm
 
 
 def home(request):
-    title = 'Welcome'
+    title = 'Join Us Now'
     # if request.user.is_authenticated():
     #     title = 'My Title %s' %(request.user)
     # else:
@@ -31,6 +31,10 @@ def home(request):
             'title': 'Thank you'
         }
 
+    if request.user.is_authenticated() and request.user.is_staff:
+        context = {
+            'queryset': [123,456]
+        }
 
     return render(request, "home.html", context)
 

@@ -20,6 +20,7 @@
   </style>
 
 {% block jumbotron %}
+    {% if not request.user.is_authenticated %}
     <div class="jumbotron">
         <div class="container">
             <div class="row">
@@ -35,19 +36,24 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
 
 
 {% block content %}
 
+    {% if request.user.is_authenticated %}
+    <h1>You are logged in</h1>
+    {{ queryset }}
 
+    {% else %}
     <div class="row">
     <div class="col-xs-3">
-        <p class="lead text-align-center">Build with Django & Bootstrap</p>
+        <p class="lead text-align-center">Django & Bootstrap</p>
         <img src="{% static 'img/marketing1.jpg' %}" class="img-responsive"/>
     </div>
     <div class="col-xs-3">
-        <p class="lead text-align-center">Created for Starters of all kinds.
+        <p class="lead text-align-center">Created for Starters
         <br>
         <span class="fa-stack fa-lg fa-5x">
             <i class="fa fa-comment-o fa-stack-2x"></i>
@@ -60,7 +66,7 @@
         <br><br>
         <span class="fa-stack fa-lg fa-5x">
             <i class="fa fa-github fa-stack-1x"></i>
-            <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+            <i class="fa fa-circle-o-notch fa-stack-2x"></i>
         </span>
         </p>
     </div>
@@ -72,4 +78,5 @@
             </form>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
