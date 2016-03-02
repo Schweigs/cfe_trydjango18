@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 # Create your views here.
 
 from .forms import SignUpForm, ContactForm
+from .models import SignUp
 
 
 def home(request):
@@ -32,8 +33,13 @@ def home(request):
         }
 
     if request.user.is_authenticated() and request.user.is_staff:
+        # print SignUp.objects.all()
+        # for item in SignUp.objects.all():
+        #    print item.full_name
+        queryset = SignUp.objects.all().order_by('-timestamp') # .filter(full_name__icontains='Markus')
+        # print SignUp.objects.all().order_by('-timestamp').filter(full_name__icontains='Markus').count()
         context = {
-            'queryset': [123,456]
+            'queryset': queryset
         }
 
     return render(request, "home.html", context)
